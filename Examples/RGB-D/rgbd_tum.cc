@@ -28,6 +28,10 @@
 
 #include<System.h>
 
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 using namespace std;
 
 void LoadImages(const string &strAssociationFilename, vector<string> &vstrImageFilenamesRGB,
@@ -35,9 +39,9 @@ void LoadImages(const string &strAssociationFilename, vector<string> &vstrImageF
 
 int main(int argc, char **argv)
 {
-    if(argc != 5)
+    if(argc != 6)
     {
-        cerr << endl << "Usage: ./rgbd_tum path_to_vocabulary path_to_settings path_to_sequence path_to_association" << endl;
+        cerr << endl << "Usage: ./rgbd_tum path_to_vocabulary path_to_settings path_to_sequence path_to_association output_file_name" << endl;
         return 1;
     }
 
@@ -133,8 +137,8 @@ int main(int argc, char **argv)
     cout << "mean tracking time: " << totaltime/nImages << endl;
 
     // Save camera trajectory
-    SLAM.SaveTrajectoryTUM("CameraTrajectory.txt");
-    SLAM.SaveKeyFrameTrajectoryTUM("KeyFrameTrajectory.txt");   
+    SLAM.SaveTrajectoryTUM(string(argv[5]));
+    // SLAM.SaveKeyFrameTrajectoryTUM("KeyFrameTrajectory.txt");   
 
     return 0;
 }

@@ -37,6 +37,9 @@
 
 #include<mutex>
 
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -1340,6 +1343,8 @@ void Tracking::UpdateLocalKeyFrames()
 
 bool Tracking::Relocalization()
 {
+    // TL: hack to run like VO
+    return false;
     // Compute Bag of Words Vector
     mCurrentFrame.ComputeBoW();
 

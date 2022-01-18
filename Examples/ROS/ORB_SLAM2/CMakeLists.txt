@@ -84,6 +84,7 @@ src/ros_stereo.cc
 
 target_link_libraries(Stereo
 ${LIBS}
+-lboost_system
 )
 
 # Node for RGB-D camera
@@ -93,5 +94,6 @@ src/ros_rgbd.cc
 
 target_link_libraries(RGBD
 ${LIBS}
+-lboost_system
 )
 

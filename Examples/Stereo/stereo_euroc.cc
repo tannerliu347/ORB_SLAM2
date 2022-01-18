@@ -29,6 +29,10 @@
 
 #include<System.h>
 
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 using namespace std;
 
 void LoadImages(const string &strPathLeft, const string &strPathRight, const string &strPathTimes,
@@ -36,9 +40,9 @@ void LoadImages(const string &strPathLeft, const string &strPathRight, const str
 
 int main(int argc, char **argv)
 {
-    if(argc != 6)
+    if(argc != 7)
     {
-        cerr << endl << "Usage: ./stereo_euroc path_to_vocabulary path_to_settings path_to_left_folder path_to_right_folder path_to_times_file" << endl;
+        cerr << endl << "Usage: ./stereo_euroc path_to_vocabulary path_to_settings path_to_left_folder path_to_right_folder path_to_times_file output_filename" << endl;
         return 1;
     }
 
@@ -184,7 +188,7 @@ int main(int argc, char **argv)
     cout << "mean tracking time: " << totaltime/nImages << endl;
 
     // Save camera trajectory
-    SLAM.SaveTrajectoryTUM("CameraTrajectory.txt");
+    SLAM.SaveTrajectoryTUM(argv[6]);
 
     return 0;
 }
