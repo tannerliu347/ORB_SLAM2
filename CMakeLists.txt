@@ -38,6 +38,7 @@ endif()
 
 find_package(Eigen3 3.1.0 REQUIRED)
 find_package(Pangolin REQUIRED)
+find_package(Boost REQUIRED COMPONENTS system thread timer chrono filesystem)
 
 include_directories(
 ${PROJECT_SOURCE_DIR}
@@ -85,6 +86,14 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/RGB-D)
 add_executable(rgbd_tum
 Examples/RGB-D/rgbd_tum.cc)
 target_link_libraries(rgbd_tum ${PROJECT_NAME})
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Tartan)
+
+add_executable(rgbd_tartan
+Examples/Tartan/rgbd_tartan.cc)
+target_link_libraries(rgbd_tartan ${PROJECT_NAME} 
+                                  ${PROJECT_SOURCE_DIR}/Thirdparty/cnpy/lib/libcnpy.so
+                                  boost_system boost_filesystem)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Stereo)
 
