@@ -22,3 +22,7 @@ build/
 *~
 lib/
 
+results/
+KITTI/
+EuRoc/
+*.png

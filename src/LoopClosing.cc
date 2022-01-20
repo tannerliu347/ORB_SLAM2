@@ -107,7 +107,7 @@ bool LoopClosing::DetectLoop()
 {
 
     // TL: hack to run like VO
-    return false;
+    // return false;
     {
         unique_lock<mutex> lock(mMutexLoopQueue);
         mpCurrentKF = mlpLoopKeyFrameQueue.front();

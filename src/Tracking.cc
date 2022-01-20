@@ -1344,7 +1344,7 @@ void Tracking::UpdateLocalKeyFrames()
 bool Tracking::Relocalization()
 {
     // TL: hack to run like VO
-    return false;
+    // return false;
     // Compute Bag of Words Vector
     mCurrentFrame.ComputeBoW();
 
