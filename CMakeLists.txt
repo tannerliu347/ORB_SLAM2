@@ -87,10 +87,8 @@ add_executable(rgbd_tum
 Examples/RGB-D/rgbd_tum.cc)
 target_link_libraries(rgbd_tum ${PROJECT_NAME})
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Tartan)
-
 add_executable(rgbd_tartan
-Examples/Tartan/rgbd_tartan.cc)
+Examples/RGB-D/rgbd_tartan.cc)
 target_link_libraries(rgbd_tartan ${PROJECT_NAME} 
                                   ${PROJECT_SOURCE_DIR}/Thirdparty/cnpy/lib/libcnpy.so
                                   boost_system boost_filesystem)
@@ -105,6 +103,11 @@ add_executable(stereo_euroc
 Examples/Stereo/stereo_euroc.cc)
 target_link_libraries(stereo_euroc ${PROJECT_NAME})
 
+
+add_executable(stereo_tartan
+Examples/Stereo/stereo_tartan.cc)
+target_link_libraries(stereo_tartan ${PROJECT_NAME}
+                                    boost_system boost_filesystem)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Monocular)
 
